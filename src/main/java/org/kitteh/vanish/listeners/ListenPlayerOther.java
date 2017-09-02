@@ -86,21 +86,27 @@ public final class ListenPlayerOther implements Listener {
                     break;
                 case DISPENSER:
                     inventory = ((Dispenser) blockState).getInventory();
+                    fake = true;
                     break;
                 case HOPPER:
                     inventory = ((Hopper) blockState).getInventory();
+                    fake = true;
                     break;
                 case DROPPER:
                     inventory = ((Dropper) blockState).getInventory();
+                    fake = true;
                     break;
                 case FURNACE:
                     inventory = ((Furnace) blockState).getInventory();
+                    fake = true;
                     break;
                 case BREWING_STAND:
                     inventory = ((BrewingStand) blockState).getInventory();
+                    fake = true;
                     break;
                 case BEACON:
                     inventory = ((Beacon) blockState).getInventory();
+                    fake = true;
                     break;
             }
             if (inventory != null) {

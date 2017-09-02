@@ -86,6 +86,10 @@ public final class VanishPerms {
         return VanishPerms.getUser(player).getSeeAll();
     }
 
+    public static boolean canSeeLimited(Player player) {
+        return VanishPerms.getUser(player).getseeLimited();
+    }
+
     public static boolean canSeeSpoutStatus(Player player) {
         return player.hasPermission("vanish.spout.status");
     }

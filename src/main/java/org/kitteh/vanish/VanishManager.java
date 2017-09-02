@@ -64,8 +64,8 @@ public final class VanishManager {
     }
 
     private final VanishPlugin plugin;
-    private final Set<String> vanishedPlayerNames = Collections.synchronizedSet(new HashSet<String>());
-    private final Map<String, Boolean> sleepIgnored = new HashMap<String, Boolean>();
+    private final Set<UUID> vanishedPlayerNames = Collections.synchronizedSet(new HashSet<UUID>());
+    private final Map<UUID, Boolean> sleepIgnored = new HashMap<UUID, Boolean>();
     private final Set<UUID> bats = new HashSet<UUID>();
     private final VanishAnnounceManipulator announceManipulator;
     private final Random random = new Random();
@@ -102,7 +102,7 @@ public final class VanishManager {
         return this.bats;
     }
 
-    public Set<String> getVanishedPlayers() {
+    public Set<UUID> getVanishedPlayers() {
         return ImmutableSet.copyOf(this.vanishedPlayerNames);
     }
 
@@ -113,7 +113,7 @@ public final class VanishManager {
      * @return true if vanished
      */
     public boolean isVanished(Player player) {
-        return this.vanishedPlayerNames.contains(player.getName());
+        return this.vanishedPlayerNames.contains(player.getUniqueId());
     }
 
     /**
@@ -249,7 +249,7 @@ public final class VanishManager {
                     }
                 }
             }
-            this.vanishedPlayerNames.add(vanishingPlayerName);
+            this.vanishedPlayerNames.add(vanishingPlayer.getUniqueId());
             MetricsOverlord.getVanishTracker().increment();
             this.plugin.getLogger().info(vanishingPlayerName + " disappeared.");
         } else {
@@ -449,7 +449,7 @@ public final class VanishManager {
 
     void setSleepingIgnored(Player player) {
         if (!this.sleepIgnored.containsKey(player.getName())) {
-            this.sleepIgnored.put(player.getName(), player.isSleepingIgnored());
+            this.sleepIgnored.put(player.getUniqueId(), player.isSleepingIgnored());
         }
         player.setSleepingIgnored(true);
     }

@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
 
   <name>VanishNoPacket</name>
-  <version>3.20</version>
+  <version>3.60</version>
 
   <url>http://github.com/mbax/VanishNoPacket</url>
 
@@ -72,9 +72,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.7.10-R0.1-SNAPSHOT</version>
+      <groupId>org.spigotmc</groupId>
+      <artifactId>spigot</artifactId>
+      <version>1.9.2-R0.1-SNAPSHOT</version>
       <type>jar</type>
       <optional>true</optional>
     </dependency>
